@@ -7,6 +7,7 @@ import java.lang.annotation.Target;
 import retrofit2.http.Query;
 
 public class RepositoriesContent {
+    int id;
     String name;
     String description;
     @SerializedName("private")
@@ -19,5 +20,6 @@ public class RepositoriesContent {
     String updatedAt;
     @SerializedName("pushed_at")
     String pushedAt;
+    String language;
 
 }

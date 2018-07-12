@@ -50,6 +50,7 @@ public class Followers extends AppCompatActivity implements AdapterView.OnItemCl
         listView.setAdapter(adapter);
         intent = getIntent();
         receivedUrl= intent.getStringExtra("URL")+"/";
+
         fetchData();
     }
 

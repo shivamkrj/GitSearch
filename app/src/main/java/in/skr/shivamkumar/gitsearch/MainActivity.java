@@ -37,8 +37,11 @@ public class MainActivity extends AppCompatActivity {
         textViewName = findViewById(R.id.textView4);
         imageViewPhoto = findViewById(R.id.imageView);
         editText = findViewById(R.id.editText);
+    //    imageViewPhoto.setVisibility(View.GONE);
         url = "https://api.github.com/users/";
         cURL="";
+        Picasso.with(this).load("https://i.imgur.com/tGbaZCY.jpg").into(imageViewPhoto);
+
     }
 
     public void button(View view){
@@ -49,10 +52,8 @@ public class MainActivity extends AppCompatActivity {
         Retrofit retrofit = builder.build();
 
         GitMainServices service = retrofit.create(GitMainServices.class);
-        if(cURL==null||cURL.length()==0)
             cURL = editText.getText().toString();
-        else
-            editText.setText(cURL);
+
         Call<GitMainResopnse> call = service.getDetails(cURL);
 
         call.enqueue(new Callback<GitMainResopnse>() {
@@ -74,7 +75,8 @@ public class MainActivity extends AppCompatActivity {
                 follower_URL = mainResopnse.followers_url;
                 repositariesUrl = mainResopnse.repos_url;
                 String imageUrl = mainResopnse.avatar_url;
-                Picasso.get().load(imageUrl).into(imageViewPhoto);
+                Picasso.with(MainActivity.this).load(imageUrl).into(imageViewPhoto);
+                imageViewPhoto.setVisibility(View.VISIBLE);
 
             }
             @Override
@@ -115,7 +117,8 @@ public class MainActivity extends AppCompatActivity {
                 follower_URL = mainResopnse.followers_url;
                 repositariesUrl = mainResopnse.repos_url;
                 String imageUrl = mainResopnse.avatar_url;
-                Picasso.get().load(imageUrl).into(imageViewPhoto);
+                Picasso.with(MainActivity.this).load(imageUrl).into(imageViewPhoto);
+                imageViewPhoto.setVisibility(View.VISIBLE);
 
             }
             @Override
@@ -125,7 +128,10 @@ public class MainActivity extends AppCompatActivity {
         });
     }
     public void repositories(View view){
-
+        Intent intent = new Intent(this,Repositories.class);
+        String sendUrl = url+cURL;
+        intent.putExtra("URL",sendUrl);
+        startActivity(intent);
     }
     public void followers(View view){
         Intent intent = new Intent(this,Followers.class);
@@ -139,8 +145,10 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode==1){
             if(resultCode==2){
+                imageViewPhoto.setVisibility(View.GONE);
                 String k = data.getStringExtra("URL");
                 cURL=k;
+                editText.setText(cURL);
                 fetchData();
             }
         }

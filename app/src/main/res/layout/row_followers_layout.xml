@@ -7,45 +7,71 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="8dp">
+        android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/label_id"
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:scaleType="fitXY"
+            android:id="@+id/image"/>
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="ID "
-            android:textSize="16dp"
-            android:textColor="#292525"/>
-        <TextView
-            android:id="@+id/id_content"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="15dp"
-            android:textColor="#f0630b"/>
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="8dp">
+
+                <TextView
+                    android:id="@+id/label_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ID "
+                    android:textColor="#292525"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:id="@+id/id_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#f0630b"
+                    android:textSize="15dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="8dp">
+
+                <TextView
+                    android:id="@+id/label_login"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="LoginUser "
+                    android:textColor="#292525"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:id="@+id/login_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#f0630b"
+                    android:textSize="15dp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
 
     </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="8dp">
 
-        <TextView
-            android:id="@+id/label_login"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="LoginUser "
-            android:textSize="16dp"
-            android:textColor="#292525"/>
-        <TextView
-            android:id="@+id/login_content"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="15dp"
-            android:textColor="#f0630b"/>
 
-    </LinearLayout>
     <Button
         android:id="@+id/button_openBrowser"
         android:focusable="false"
