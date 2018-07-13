@@ -5,6 +5,8 @@ import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -16,11 +18,12 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class Repositories extends AppCompatActivity {
+public class Repositories extends AppCompatActivity implements checkInterface{
 
     ListView listView;
     ArrayList<RepositoriesContent> repositories;
     String receivedUrl;
+    String xyz="sdkjf";
     RepositoriesAdapter adapter;
     Intent intent;
 
@@ -40,6 +43,13 @@ public class Repositories extends AppCompatActivity {
                 Uri uri = Uri.parse(url);
                 i.setData(uri);
                 startActivity(i);
+            }
+        });
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                xyz="helkf";
+                Toast.makeText(Repositories.this,"Item Clicked",Toast.LENGTH_SHORT).show();
             }
         });
         listView.setAdapter(adapter);
@@ -90,4 +100,8 @@ public class Repositories extends AppCompatActivity {
         });
     }
 
+    @Override
+    public void onCheck() {
+
+    }
 }

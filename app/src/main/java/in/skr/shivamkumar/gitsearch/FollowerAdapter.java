@@ -77,7 +77,8 @@ public class FollowerAdapter extends ArrayAdapter {
         viewHolder.idContent.setText(i+"");
         ImageView imageView = viewHolder.imageView;
 
-//        Picasso.with(context).load("https://i.imgur.com/tGbaZCY.jpg").into(imageView);
+       // Picasso.with(context).load("https://i.imgur.com/tGbaZCY.jpg").into(imageView);
+
 
         return output;
     }

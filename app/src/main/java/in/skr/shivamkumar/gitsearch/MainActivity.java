@@ -37,10 +37,10 @@ public class MainActivity extends AppCompatActivity {
         textViewName = findViewById(R.id.textView4);
         imageViewPhoto = findViewById(R.id.imageView);
         editText = findViewById(R.id.editText);
-    //    imageViewPhoto.setVisibility(View.GONE);
+        imageViewPhoto.setVisibility(View.GONE);
         url = "https://api.github.com/users/";
         cURL="";
-        Picasso.with(this).load("https://i.imgur.com/tGbaZCY.jpg").into(imageViewPhoto);
+    //    Picasso.with(this).load("https://i.imgur.com/tGbaZCY.jpg").into(imageViewPhoto);
 
     }
 
